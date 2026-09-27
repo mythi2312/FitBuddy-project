@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitBuddy - Your Plan</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>🏋️ FitBuddy</h1>
+    <p>Your Personalized Plan</p>
+  </div>
+
+  <div class="panel">
+    <a class="back-link" href="/">← Back to Home</a>
+    <h2>User Information</h2>
+
+    {% if updated %}
+    <div class="confirm-banner">✅ Your plan has been updated based on your feedback.</div>
+    {% endif %}
+
+    <div class="summary-grid">
+      <div><span class="label">Name: </span><span class="value">{{ username }}</span></div>
+      <div><span class="label">User ID: </span><span class="value">{{ user_id }}</span></div>
+      <div><span class="label">Age: </span><span class="value">{{ age }}</span></div>
+      <div><span class="label">Weight: </span><span class="value">{{ weight }} kg</span></div>
+      <div><span class="label">Goal: </span><span class="value">{{ goal }}</span></div>
+      <div><span class="label">Intensity: </span><span class="value">{{ intensity }}</span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>📅 7-Day Workout Plan</h2>
+    <pre class="plan-block">{{ workout_plan }}</pre>
+  </div>
+
+  <div class="panel">
+    <h2>🥗 Nutrition / Recovery Tip</h2>
+    <div class="tip-box">{{ nutrition_tip }}</div>
+  </div>
+
+  <div class="panel">
+    <h2>💬 Submit Feedback to Refine Your Plan</h2>
+    <form action="/submit-feedback" method="post">
+      <input type="hidden" name="user_id" value="{{ user_id }}" />
+      <label>Feedback
+        <textarea name="feedback" rows="3" placeholder="e.g. more focus on cardio, include more rest days" required></textarea>
+      </label>
+      <button type="submit">Update Plan</button>
+    </form>
+  </div>
+
+  <div class="panel" style="text-align:center;">
+    <a class="back-link" href="/view-all-users">View All Users (Admin) →</a>
+  </div>
+</body>
+</html>
