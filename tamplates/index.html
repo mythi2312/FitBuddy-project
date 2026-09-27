@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitBuddy - AI Workout Generator</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>🏋️ FitBuddy</h1>
+    <p>AI Workout &amp; Nutrition Generator</p>
+  </div>
+
+  <div class="panel">
+    <h2>Enter Your Details</h2>
+    <form action="/generate-workout" method="post">
+      <label>Name
+        <input type="text" name="username" required />
+      </label>
+      <label>User ID
+        <input type="text" name="user_id" required placeholder="e.g. a unique username or ID" />
+      </label>
+      <label>Age
+        <input type="number" name="age" min="10" max="100" required />
+      </label>
+      <label>Weight (kg)
+        <input type="number" name="weight" min="20" max="300" required />
+      </label>
+      <label>Fitness Goal
+        <select name="goal" required>
+          <option value="weight loss">Weight Loss</option>
+          <option value="muscle gain">Muscle Gain</option>
+          <option value="flexibility">Flexibility</option>
+          <option value="general wellness">General Wellness</option>
+        </select>
+      </label>
+      <label>Workout Intensity
+        <select name="intensity" required>
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </label>
+      <button type="submit">Generate Plan</button>
+    </form>
+  </div>
+
+  <div class="panel" style="text-align:center;">
+    <a class="back-link" href="/view-all-users">View All Users (Admin) →</a>
+  </div>
+</body>
+</html>
