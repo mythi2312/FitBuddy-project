@@ -1,7 +1,7 @@
 """
 gemini_flash_generator.py
 --------------------------
-Uses the lighter, faster Gemini 3.1 Flash (preview) model to generate
+Uses the lighter, faster Gemini Flash (preview) model to generate
 quick, practical nutrition or recovery tips - a task that doesn't need
 Gemini Pro's heavier reasoning, so Flash keeps this call fast and
 efficient. Uses the current `google-genai` SDK.
@@ -15,7 +15,8 @@ load_dotenv()
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
 _client = genai.Client(api_key=API_KEY) if API_KEY else None
-MODEL_NAME = "gemini-3-flash-preview"
+MODEL_NAME = "gemini-flash-latest"
+
 
 
 def generate_nutrition_tip_with_flash(goal: str) -> str:
