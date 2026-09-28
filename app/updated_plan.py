@@ -2,7 +2,7 @@
 updated_plan.py
 -----------------
 Handles Scenario 2: revising an existing 7-day plan based on user feedback.
-Reuses Gemini 3.1 Pro (preview) so the revised plan keeps the same
+Reuses Gemini 3 flash (preview) so the revised plan keeps the same
 structured, day-wise format as the original. Uses the current
 `google-genai` SDK.
 """
@@ -15,7 +15,7 @@ load_dotenv()
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
 _client = genai.Client(api_key=API_KEY) if API_KEY else None
-MODEL_NAME = "gemini-3.1-pro-preview"
+MODEL_NAME = "gemini-3-flash-preview"
 
 
 def update_workout_plan(original_plan: str, feedback: str) -> str:
