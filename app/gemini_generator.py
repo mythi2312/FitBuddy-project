@@ -1,7 +1,7 @@
 """
 gemini_generator.py
 --------------------
-Uses Gemini 3 flash (preview) to generate the structured 7-day workout plan,
+Uses Gemini flash (preview) to generate the structured 7-day workout plan,
 via the current `google-genai` SDK (the older `google-generativeai` package
 is deprecated and no longer receives model updates).
 """
@@ -14,7 +14,7 @@ load_dotenv()
 
 API_KEY = os.getenv("GOOGLE_API_KEY")
 _client = genai.Client(api_key=API_KEY) if API_KEY else None
-MODEL_NAME = "gemini-3-flash-preview"
+MODEL_NAME = "gemini-flash-latest"
 
 
 def generate_workout_gemini(goal: str, intensity: str, age: int = None, weight: int = None) -> str:
